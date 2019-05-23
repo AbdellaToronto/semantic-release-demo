@@ -1,0 +1,22 @@
+version: 2.1
+jobs:
+  fake-job:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - run: echo "this might be an important thing you want to run first"
+
+  update-version:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - run: npx semantic-release
+
+workflows:
+  version: 2.1
+  release:
+    jobs:
+      - fake-job
+      - update-version:
+          requires:
+            - fake-job
