@@ -7,6 +7,16 @@
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
   },
+  "release": {
+    "branch": "master",
+    "repositoryUrl": "git@github.com:AbdellaToronto/semantic-release-demo.git",
+    "plugins": [
+      ["@semantic-release/npm", {
+        "npmPublish": false
+      }],
+      "@semantic-release/github"
+    ]
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -29,6 +39,8 @@
     ]
   },
   "devDependencies": {
+    "@semantic-release/github": "^5.2.10",
+    "@semantic-release/npm": "^5.1.7",
     "semantic-release": "^15.13.12"
   }
 }
